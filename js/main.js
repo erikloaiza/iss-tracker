@@ -38,9 +38,9 @@ function createISSMarker(lat,lon,map){
 
 async function init(){
     //fetch iss data
-    var response = await fetch('http://api.open-notify.org/iss-now.json');
+    var response = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
     var data = await response.json();
-    var {latitude,longitude} = data.iss_position;
+    var {latitude,longitude} = data;
     var map = createMap(latitude, longitude, 4);
     createISSMarker(latitude, longitude,map)
 }
